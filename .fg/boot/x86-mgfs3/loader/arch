@@ -1,0 +1,11 @@
+boot/arch/x86/a20.c
+boot/arch/x86/bios.c
+boot/arch/x86/context.c
+boot/arch/x86/disk.c
+boot/arch/x86/display.c
+boot/arch/x86/globals.c
+boot/arch/x86/io_buffer.c
+boot/arch/x86/mem.c
+boot/arch/x86/pm.c
+boot/arch/x86/pml4.c
+

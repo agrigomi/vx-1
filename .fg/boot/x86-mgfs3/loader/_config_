@@ -1,0 +1,19 @@
+COMPILER_FLAGS+=-march=i386 -m32 \
+		-fomit-frame-pointer \
+		-ffreestanding \
+		-ffunction-sections \
+		-fdata-sections \
+		-fno-pic \
+		-fnon-call-exceptions \
+		-fno-common \
+		-fno-builtin \
+		-fno-builtin-function \
+		-mno-red-zone \
+		-fno-unit-at-a-time \
+		-fno-toplevel-reorder \
+		-fno-stack-protector \
+		-fno-ident \
+		-Os 
+LINKER_FLAGS=--oformat=binary -Map=$(OUTDIR)/$(basename $(TARGET))/$(CONFIG)/$(basename $(TARGET)).map -static \
+		-melf_i386 --architecture=i386 -nodefaultlibs -nostartfiles -nostdlib -T./boot/arch/x86/x86.ld
+

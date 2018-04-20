@@ -1,0 +1,9 @@
+lib/repository/repository.c
+kernel/sync/mutex.c
+kernel/sync/mutex_api.c
+kernel/mem/heap.c
+kernel/mem/slab.c
+kernel/mem/ll_alg.c
+kernel/mem/llist.c
+kernel/mem/buffer_map.c
+

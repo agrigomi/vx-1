@@ -1,0 +1,3 @@
+boot/arch/x86/boot_s3_16_32.S
+boot/arch/x86/fsbr.S
+

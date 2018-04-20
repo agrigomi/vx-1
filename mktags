@@ -1,0 +1,2 @@
+ctags -R --c++-types=+px --excmd=pattern --exclude=Makefile --exclude=. ./
+

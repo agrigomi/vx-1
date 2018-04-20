@@ -1,0 +1,5 @@
+DEFAULT_CONFIG=amd64
+GRUB_DIR=grub2
+GRUB_CORE=$(GRUB_DIR)/grub-core
+LOCALE_DIR=/usr/share/locale/
+

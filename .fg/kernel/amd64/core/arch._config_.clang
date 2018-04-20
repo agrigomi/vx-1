@@ -1,0 +1,15 @@
+COMPILER=clang
+INCLUDES=-Iinclude -Iinterface -Ikernel/arch/x86/include -Ikernel/include -Ikernel/interface
+COMPILER_FLAGS=-D_CORE_ -D$(CONFIG) -D_x86_64_ -D_64_ \
+		-m64 -mcmodel=large \
+		-fomit-frame-pointer \
+		-ffreestanding \
+		-ffunction-sections \
+		-fdata-sections \
+		-fno-common \
+		-fno-builtin \
+		-mno-red-zone \
+		-fno-stack-protector \
+		-Os \
+		-fPIC \
+		-c -ansi -nostdlib -W -Wall $(INCLUDES)

@@ -1,0 +1,7 @@
+kernel/fs/mgfs3/buffer.c
+kernel/fs/mgfs3/bitmap.c
+kernel/fs/mgfs3/dentry.c
+kernel/fs/mgfs3/file.c
+kernel/fs/mgfs3/inode.c
+kernel/fs/mgfs3/mgfs3.c
+

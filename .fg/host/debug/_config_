@@ -1,0 +1,17 @@
+COMPILER=cc
+PREPROCESSOR=cc
+PREPROCESSOR_FLAGS=-MM -c -Iinclude -Iinterface -Ikernel/arch/x86/include -Ihost/include -Ikernel/fs/mgfs3 -Ikernel/include -Ikernel/interface
+LINKER=ld
+COMPILER_FLAGS=-ansi -c -g -W -Wall -Iinclude -Iinterface -Ikernel/arch/x86/include -Ihost/include -Ikernel/fs/mgfs3 -Ikernel/include -Ikernel/interface
+LINKER_FLAGS=
+MAKE_FLAGS= --no-print-directory -s
+OUTDIR=target
+SRCSUFFIX=.c
+DEPSUFFIX=.d
+OUTSUFFIX=.o
+DEPSUFFIX=.d
+COMPILER_OUTFLAG=-o
+LINKER_OUTFLAG=-o
+PREPROCESSOR_OUTFLAG=-MT
+PREBUILD=
+POSTBUILD=

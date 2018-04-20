@@ -1,0 +1,1 @@
+../../../kernel/arch/x86/cpu/mp_scan.c

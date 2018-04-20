@@ -1,0 +1,7 @@
+DIR=./grub2
+MAKEFILE=Makefile
+AUTOGEN=autogen.sh
+CONFIGURE=configure
+URL=ssh://git@agrigomi.ddns.net:44444/home/git/grub2.git
+BRANCH=vx-1
+

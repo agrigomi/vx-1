@@ -1,0 +1,5 @@
+COMPILER=cc
+COMPILER_FLAGS+=-D_CORE_ -D$(CONFIG) -D_x86_64_ 
+PREPROCESSOR_FLAGS+= -D_CORE_ -D$(CONFIG) -D_x86_64_ -D_DEBUG_
+LINKER=cc
+LINKER_FLAGS=-Wl,-Thost/common/vx.ld -Wl,-Map=$(OUTDIR)/$(PROJECT)/$(CONFIG)/$(basename $(TARGET))/$(basename $(TARGET)).map

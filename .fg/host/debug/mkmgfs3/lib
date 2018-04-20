@@ -1,0 +1,4 @@
+lib/startup/vxmod.c
+lib/str/str.c
+lib/str/mod_str.c
+

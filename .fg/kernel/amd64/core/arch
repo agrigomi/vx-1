@@ -1,0 +1,9 @@
+kernel/arch/x86/cpu/mp_scan.c
+kernel/arch/x86/cpu/cpuX64.c
+kernel/arch/x86/cpu/cpu_host.c
+kernel/arch/x86/cpu/vmm.c
+kernel/arch/x86/cpu/lapic.c
+kernel/arch/x86/cpu/ioapic.c
+kernel/arch/x86/cpu/msr.c
+kernel/arch/x86/cpu/cpu.c
+kernel/arch/x86/dev/txt_disp.c

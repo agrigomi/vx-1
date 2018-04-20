@@ -1,0 +1,5 @@
+COMPILER=as
+LINKER=ld
+COMPILER_FLAGS=--32
+LINKER_FLAGS=--oformat=binary -melf_i386 --architecture=i386 -nodefaultlibs -nostartfiles -nostdlib -Ttext=0
+SRCSUFFIX=.S

@@ -1,0 +1,1 @@
+LINKER_FLAGS=-r -melf_i386 --architecture=i386 -nodefaultlibs -nostartfiles -nostdlib -Ttext=0

@@ -1,0 +1,11 @@
+host/common/args/clarg.c
+host/common/disp.c
+host/common/pma.c
+host/mkfs/mgfs3/main.c
+host/mkfs/mgfs3/fmap.c
+host/mkfs/mgfs3/create.c
+host/mkfs/mgfs3/rwdm.c
+host/mkfs/mgfs3/dir.c
+host/mkfs/mgfs3/link.c
+host/mkfs/mgfs3/state.c
+

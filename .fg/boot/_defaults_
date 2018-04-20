@@ -1,0 +1,6 @@
+DEFAULT_CONFIG=x86-mgfs3
+DEFAULT_OUTDIR=target/boot/
+BUILD_TARGET=.fg/build_target.mk
+BUILD_GROUP=.fg/build_group.mk
+BUILD_FILE=.fg/compile.mk
+BUILD_DEPENDENCY=.fg/dependency.mk

@@ -1,0 +1,3 @@
+#!/bin/sh
+as --32 -acdghlmns=vbr.lst vbr.S -o ./out/vbr.o
+ld --oformat=binary -melf_i386 --architecture=i386 -nodefaultlibs -nostartfiles -nostdlib -Ttext=0 ./out/vbr.o -o ./out/vbr.bin

@@ -1,0 +1,34 @@
+COMPILER=cc
+COMPILER_FLAGS+=-D_CORE_ -D$(CONFIG) -D_x86_64_ -D_64_ \
+		-m64 -mcmodel=large \
+		-fomit-frame-pointer \
+		-ffreestanding \
+		-ffunction-sections \
+		-fdata-sections \
+		-fPIC \
+		-fnon-call-exceptions \
+		-fno-common \
+		-fno-builtin \
+		-fno-builtin-function \
+		-mno-red-zone \
+		-fno-stack-protector \
+		-fno-ident \
+		-Os 
+LINKER=ld
+PREPROCESSOR_FLAGS+= -D_CORE_ -D$(CONFIG) -D_x86_64_ -D_64_
+LINKER_FLAGS=-Tkernel/arch/x86/startup/vxcore.ld \
+		-nostdlib \
+		-pie \
+		-N \
+		-z max-page-size=0x1000 \
+		-Map=$(OUTDIR)/$(PROJECT)/$(CONFIG)/$(basename $(TARGET))/$(basename $(TARGET)).map
+
+DEPLOYDIR=$(OUTDIR)/deploy
+POSTBUILD=@echo --- post build step --- && \
+		echo copy $(TARGET) to $(DEPLOYDIR)/$(CONFIG)/boot/ && \
+		mkdir -p $(DEPLOYDIR) && \
+		mkdir -p $(DEPLOYDIR)/$(CONFIG) && \
+		mkdir -p $(DEPLOYDIR)/$(CONFIG)/boot && \
+		cp $(OUTDIR)/$(PROJECT)/$(CONFIG)/$(basename $(TARGET))/$(TARGET) $(DEPLOYDIR)/$(CONFIG)/boot/ && \
+		touch $(DEPLOYDIR)/$(CONFIG)
+

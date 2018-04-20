@@ -1,0 +1,11 @@
+kernel/mem/b24_pma.c
+kernel/mem/heap.c
+kernel/mem/slab.c
+kernel/mem/buffer_map.c
+kernel/mem/env.c
+kernel/mem/ll_alg.c
+kernel/mem/llist.c
+kernel/mem/rb_alg.c
+kernel/mem/rbuffer.c
+kernel/mem/reg_alg.c
+kernel/mem/reg.c
