@@ -133,14 +133,14 @@ static _u8 __create_context(_vx_mod_t *p_mod, _ulong addr_limit, _vx_context_t *
 				}
 			}
 		} else {
-			/* can't create new context, because 
+			/* can't create new context, because
 			    data size is 0. Return static context.
 			 */
 			pc->_c_data_= p_mod->_m_context_._c_data_;
 			pc->_c_mod_ = p_mod;
 			p_mod->_m_refc_++;
 			r = 1;
-		}	
+		}
 	}
 	return r;
 }
@@ -211,7 +211,7 @@ static _vx_mod_t *get_vx_mod_by_name(_cstr_t name) {
 			pi_llist->unlock(p_ldata, hlock);
 		}
 	}
-	
+
 	return r;
 }
 
@@ -235,12 +235,12 @@ static _vx_mod_t *get_vx_mod_by_interface(_cstr_t name) {
 			pi_llist->unlock(p_ldata, hlock);
 		}
 	}
-	
+
 	return r;
 }
 static _u32 repo_ctl(_u32 cmd, ...) {
 	_u32 r = VX_ERR;
-	
+
 	switch(cmd) {
 		case MODCTL_INIT_CONTEXT:
 			r = VX_OK;
@@ -292,12 +292,12 @@ static HCONTEXT _get_context_by_interface(_cstr_t i_name) {
 
 static HCONTEXT _create_context(_vx_mod_t *p_mod, _ulong addr_limit) {
 	HCONTEXT r = NULL;
-	if(p_mod) { 
+	if(p_mod) {
 		_vx_context_t cxt;
 		if(__create_context(p_mod, addr_limit, &cxt)) {
 			if(cxt._c_data_ != p_mod->_m_context_._c_data_) {
 				/* dynamic data context,
-				 	store to context list 
+				 	store to context list
 				*/
 				_p_data_t pd_list = NULL;
 				_i_llist_t *pi_list = get_context_list(&pd_list);
@@ -461,11 +461,11 @@ static _u32 _mod_count(void) {
 
 static void _remove_mod_array(HMARRAY hmod_array) {
 	_mod_array_t *p_mod_array = (_mod_array_t *)hmod_array;
-	
+
 	if(p_mod_array != &g_main_array) { /* because can't remove main array */
 		_p_data_t pd_list = NULL;
 		_i_llist_t *pi_list = get_array_list(&pd_list);
-		
+
 		if(pi_list && pd_list) {
 			HMUTEX hm = pi_list->lock(pd_list, 0);
 			/*#warning do not forget to implement here !*/

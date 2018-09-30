@@ -33,21 +33,21 @@ void _vx_ext_init_(_ext_startup_t *p_sc) {
 	_ulong mod_count = ((_ulong)p_emod - (_ulong)p_smod) / sizeof(_vx_mod_t);
 	_u32 i = 0;
 
-#ifdef _CORE_	
+#ifdef _CORE_
 	_vx_mod_t *p_arch_entry = NULL;
-	
+
 	/* search for repository */
 	for(; i < mod_count; i++) {
 		if(_str_cmp((_str_t)((p_smod + i)->_m_iname_), I_REPOSITORY) == 0) {
-			/* keep interface pointer only, because we do not expect 
-			    public data context for repository 
+			/* keep interface pointer only, because we do not expect
+			    public data context for repository
 			*/
 			__g_p_i_repository__ = (p_smod + i)->_m_interface_;
 			break;
 		}
 	}
 #endif /* _CORE_ */
-	
+
 	if(__g_p_i_repository__ && mod_count) {
 		/* add local '.vxmod' array to repository  */
 		__g_h_mod_array__ =__g_p_i_repository__->add_mod_array(p_smod, mod_count);
@@ -61,16 +61,16 @@ void _vx_ext_init_(_ext_startup_t *p_sc) {
 					p_arch_entry = (p_smod + i);
 			}
 #endif
-			
+
 			if((p_smod + i)->_m_ctl_)
 				/* call module with early init command (withowt args) */
 				(p_smod + i)->_m_ctl_(MODCTL_EARLY_INIT);
 		}
-		
+
 		__g_p_i_repository__->init_mod_array(__g_h_mod_array__);
 
 #ifdef _CORE_
-		if(p_arch_entry) 
+		if(p_arch_entry)
 			/* call architecture entry point */
 			p_arch_entry->_m_ctl_(MODCTL_START, __g_p_i_repository__, p_arch_entry->_m_context_._c_data_);
 #endif

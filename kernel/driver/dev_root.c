@@ -38,7 +38,7 @@ static void unlock(HDEV dev, HMUTEX hlock);
 static _vx_dev_t *dev_ptr(HDEV dev) {
 	_vx_dev_t *r = NULL;
 
-	/* because in future 
+	/* because in future
 	HDEV can be different by _vx_dev_t*  */
 	_vx_dev_t *_r = (_vx_dev_t *)dev;
 
@@ -102,8 +102,8 @@ static _u32 _mod_ctl_(_u32 cmd, ...) {
 					}
 
 					if(g_hc_llist && g_hc_heap) {
-						/* create device entry (ROOT for all device drivers) 
-						   and store the entry pointer, because it will be used 
+						/* create device entry (ROOT for all device drivers)
+						   and store the entry pointer, because it will be used
 						   as default start point for dev_request */
 						if((_g_p_dev_root = create_device(_mod_ctl_, NULL, NULL))) {
 							/* force attach */
@@ -262,15 +262,18 @@ static void sys_update(void) {
 					if(p_dev->_d_state_ & DSTATE_PENDING) {
 						if(!(p_dev->_d_state_ & DSTATE_INITIALIZED)) {
 							if(p_dev->_d_ctl_) {
+								pi_list->unlock(pd_list, hl);
 								if(p_dev->_d_ctl_(DEVCTL_INIT, &_g_i_dev_root, p_dev) == VX_OK)
 									p_dev->_d_state_ |= DSTATE_INITIALIZED;
+								hl = pi_list->lock(pd_list, 0);
+								pi_list->sel(pd_list, p_dev, hl);
 							}
 						}
 						if(p_dev->_d_host_ && !(p_dev->_d_state_ & DSTATE_ATTACHED) &&
 									(p_dev->_d_state_ & DSTATE_INITIALIZED)) {
 							if(attach_to_host(p_dev->_d_host_, p_dev, hm)) {
 								p_dev->_d_state_ &= ~DSTATE_PENDING;
-								LOG(LMT_INFO, "[sys update] attach '%s' slot=%d", 
+								LOG(LMT_INFO, "[sys update] attach '%s' slot=%d",
 										p_dev->_d_ident_, p_dev->_d_slot_);
 							}
 						}
@@ -332,7 +335,7 @@ static void remove_from_list(_vx_dev_t *p_dev) {
 		if(pi_list && pd_list) {
 			HMUTEX hl = pi_list->lock(pd_list, 0);
 			if(pi_list->sel(pd_list, p_dev, hl))
-				pi_list->del(pd_list, hl); 
+				pi_list->del(pd_list, hl);
 			pi_list->unlock(pd_list, hl);
 		}
 	}
@@ -377,7 +380,7 @@ static _u32 remove_device(HDEV dev, HMUTEX hlock) {
 	}
 
 	unlock_dev(p_dev, hm);
-	
+
 	if((r = p_dev->_d_ctl_(DEVCTL_UNINIT, &_g_i_dev_root, p_dev)) == VX_OK) {
 		hm = lock_dev(p_dev, hlock);
 		p_dev->_d_state_ &= ~DSTATE_INITIALIZED;
@@ -521,7 +524,7 @@ static _vx_res_t dev_get_config(HDEV h, _p_data_t cfg, HMUTEX hlock) {
 		HMUTEX hm = lock_dev(p_dev, hlock);
 		r = p_dev->_d_ctl_(DEVCTL_GET_CONFIG, cfg);
 		unlock_dev(p_dev, hm);
-	} 
+	}
 	return r;
 }
 static _vx_res_t dev_set_config(HDEV h, _p_data_t cfg, HMUTEX hlock) {
@@ -531,7 +534,7 @@ static _vx_res_t dev_set_config(HDEV h, _p_data_t cfg, HMUTEX hlock) {
 		HMUTEX hm = lock_dev(p_dev, hlock);
 		r = p_dev->_d_ctl_(DEVCTL_SET_CONFIG, cfg);
 		unlock_dev(p_dev, hm);
-	} 
+	}
 	return r;
 }
 

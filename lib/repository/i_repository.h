@@ -16,7 +16,7 @@ typedef struct {
 	/* init array */
 	void (*init_mod_array)(_ulong harray);
 
-	/* create new context */	
+	/* create new context */
 	HCONTEXT (*create_context_by_interface)(_cstr_t interface_name);
 	HCONTEXT (*create_context_by_name)(_cstr_t mod_name);
 	HCONTEXT (*create_limited_context_by_interface)(_cstr_t interface_name, _ulong addr_limit);
