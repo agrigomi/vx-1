@@ -70,7 +70,7 @@ static void _disp_scroll(void) {
 	_u8 *src = (_u8 *)(base + (_g_max_col_  * 2));
 	_u8 *dst = (_u8 *)base;
 	_u32 sz = (((_g_max_row_ + 1) * _g_max_col_) * 2);
-	
+
 	/* scroll video buffer */
 	_g_pi_str_->mem_cpy(dst,src,sz);
 }
@@ -85,14 +85,14 @@ static void _disp_clear(void) {
 	_u16 *ptr = (_u16 *)base;
 	_u32 sz = _g_max_row_ * _g_max_col_;
 	_u16 pattern = _g_color_;
-	
+
 	pattern = (pattern << 8)|0x20;
-	
+
 	while(sz) {
 		*ptr++ = pattern;
 		sz--;
 	}
-	
+
 	_g_row_ = _g_col_ = 0;
 }
 
@@ -137,7 +137,7 @@ static _u32 disp_write(_p_data_t buffer, _u32 size) {
 				}
 			}
 		}
-		
+
 		_sz--;
 		r++;
 	}
@@ -238,7 +238,7 @@ _vx_res_t _disp_ctl_(_u32 cmd, ...) {
 			} break;
 		case DEVCTL_GET_CONFIG: {
 				_vx_dev_t _UNUSED_ *p_dev = va_arg(args, _vx_dev_t*);
-				_p_data_t _UNUSED_ *ptr = va_arg(args, _p_data_t*);
+				_p_data_t _UNUSED_ *ptr = va_arg(args, _p_data_t);
 				/* ... */
 				r = VX_OK;
 			} break;

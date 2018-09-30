@@ -91,7 +91,7 @@ static _u32 arch_entry_ctl(_u32 cmd, ...) {
 
 DEF_VXMOD(
 	MOD_X86_64_ENTRY,
-	I_ARCH_ENTRY, 
+	I_ARCH_ENTRY,
 	NULL, /* no interface */
 	NULL, /* no static data context */
 	0,
